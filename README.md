@@ -1,12 +1,13 @@
 Performance Analysis 101
 ========================
 
-Exemplos de aplicações python com diversos profilers
+python profiling examples.
 
-line_profile:
+line_profiler:
 
     $ pip install line_profiler
     $ kernprof -l wrk_vaurien/app.py
+    $ python -m line_profiler wrk_vaurien/app.py.lprof
 
 
 memory_profiler:
