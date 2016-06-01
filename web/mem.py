@@ -11,10 +11,6 @@ cache = SimpleCache()
 @app.route("/mem")
 def mem():
     collections = cache.get("mtg_coll")
-    if not collections:
-        resp = requests.get("http://mtgjson.com/json/AllSetsArray.json")
-        cache.set("mtg_coll", resp.json())
-
     cards_name = []
     for collection in collections:
         for card in collection["cards"]:
@@ -23,4 +19,6 @@ def mem():
 
 
 if __name__ == '__main__':
+    resp = requests.get("http://mtgjson.com/json/AllSetsArray.json")
+    cache.set("mtg_coll", resp.json())
     app.run(processes=4)
