@@ -1,17 +1,20 @@
 import json
 import requests
 
-from memory_profiler import profile
 from flask import Flask
+from werkzeug.contrib.cache import SimpleCache
 
 app = Flask(__name__)
+cache = SimpleCache()
 
 
-@profile
 @app.route("/mem")
 def mem():
-    resp = requests.get("http://mtgjson.com/json/AllSetsArray.json")
-    collections = resp.json()
+    collections = cache.get("mtg_coll")
+    if not collections:
+        resp = requests.get("http://mtgjson.com/json/AllSetsArray.json")
+        cache.set("mtg_coll", resp.json())
+
     cards_name = []
     for collection in collections:
         for card in collection["cards"]:
@@ -20,5 +23,4 @@ def mem():
 
 
 if __name__ == '__main__':
-    app.run()
-
+    app.run(processes=4)
