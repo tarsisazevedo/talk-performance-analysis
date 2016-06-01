@@ -6,11 +6,11 @@ python profiling examples.
 line_profiler:
 
     $ pip install line_profiler
-    $ kernprof -l wrk_vaurien/app.py
-    $ python -m line_profiler wrk_vaurien/app.py.lprof
+    $ kernprof -l web/app.py
+    $ python -m line_profiler web/app.py.lprof
 
 
 memory_profiler:
     
     $ pip install psutil memory_profiler
-    $ python -m memory_profiler wrk_vaurien/app.py
+    $ python -m memory_profiler web/mem.py
