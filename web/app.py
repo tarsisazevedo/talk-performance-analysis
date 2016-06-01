@@ -1,7 +1,6 @@
 import json
 import requests
 
-from memory_profiler import profile as mprofile
 from flask import Flask
 
 app = Flask(__name__)
