@@ -1,20 +1,23 @@
 import json
 import requests
+import objgraph
 
-from flask import Flask
+from flask import Flask, request
 from werkzeug.contrib.cache import SimpleCache
 
 app = Flask(__name__)
 cache = SimpleCache()
 
 
-@app.route("/mem")
+@app.route("/")
 def mem():
     collections = cache.get("mtg_coll")
     cards_name = []
     for collection in collections:
         for card in collection["cards"]:
             cards_name.append(card["name"])
+    if request.args.get("measure"):
+        objgraph.show_most_common_types()
     return json.dumps(cards_name)
 
 
