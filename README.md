@@ -22,3 +22,8 @@ cProfile:
     $ python web/cprof.py # it will save a file at `profile` dir
     $ pyprof2calltree -i profile/GET.root.004233ms.1464841262.prof -o profile/callgrind.GET.root.prof
     $ qcachegrind profile/callgrind.GET.root.prof
+
+
+perf (linux only):
+    $ sudo apt-get install linux-tools-common
+    $ perf stat python web/perf.py
