@@ -1,6 +1,7 @@
 import json
 import requests
 import objgraph
+# import logging
 
 from flask import Flask, request
 from werkzeug.contrib.cache import SimpleCache
@@ -8,6 +9,8 @@ from werkzeug.contrib.cache import SimpleCache
 app = Flask(__name__)
 cache = SimpleCache()
 
+# log = logging.getLogger('werkzeug')
+# log.setLevel(logging.ERROR)
 
 @app.route("/")
 def mem():
