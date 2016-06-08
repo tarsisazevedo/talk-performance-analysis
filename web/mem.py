@@ -29,4 +29,4 @@ def mem():
 if __name__ == '__main__':
     resp = requests.get("http://mtgjson.com/json/AllSetsArray.json")
     cache.set("mtg_coll", resp.json())
-    app.run(processes=4)
+    app.run('0.0.0.0', processes=4)
