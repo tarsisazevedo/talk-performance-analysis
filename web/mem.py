@@ -4,6 +4,7 @@ import objgraph
 # import logging
 
 from flask import Flask, request
+from memory_profiler import profile
 from werkzeug.contrib.cache import SimpleCache
 
 app = Flask(__name__)
@@ -13,6 +14,7 @@ cache = SimpleCache()
 # log.setLevel(logging.ERROR)
 
 @app.route("/")
+@profile
 def mem():
     collections = cache.get("mtg_coll")
     cards_name = []
