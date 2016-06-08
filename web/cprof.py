@@ -21,4 +21,4 @@ def cprof():
 
 
 if __name__ == '__main__':
-    app.run(processes=4)
+    app.run('0.0.0.0', processes=4)
