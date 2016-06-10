@@ -1,6 +1,9 @@
 Performance Analysis 101
 ========================
 
+slides: https://speakerdeck.com/tarsisazevedo/performance-analysis-101
+
+
 python profiling examples.
 
 line_profiler:
@@ -11,7 +14,7 @@ line_profiler:
 
 
 memory_profiler:
-    
+
     $ pip install psutil memory_profiler
     $ python -m memory_profiler web/mem.py
 
@@ -25,5 +28,6 @@ cProfile:
 
 
 perf (linux only):
+
     $ sudo apt-get install linux-tools-common
     $ perf stat python web/perf.py
