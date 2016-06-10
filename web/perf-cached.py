@@ -3,14 +3,14 @@ import requests
 import logging
 
 from flask import Flask, request
-from werkzeug.contrib.cache import RedisCache
+from werkzeug.contrib.cache import SimpleCache
 
 app = Flask(__name__)
 app.debug=True
 
-cache = RedisCache(host="192.168.0.101", port=6379)
-# log = logging.getLogger('werkzeug')
-# log.setLevel(logging.ERROR)
+cache = SimpleCache()
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 @app.route("/")
 def perf():
