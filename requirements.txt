@@ -28,3 +28,5 @@ Werkzeug==0.11.10
 zope.deprecation==4.1.2
 zope.interface==4.1.3
 redis
+locustio
+pyzmq
